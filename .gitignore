@@ -1,0 +1,19 @@
+# Repo này (private) là bản dành cho trợ giảng/giảng viên, nên instructor/
+# ĐƯỢC track ở đây. Nếu dựng repo sinh viên từ đây, phải loại bỏ instructor/
+# trước khi push sang repo đó (xem instructor/tools/make_student_release.sh).
+
+# Gold của clip_01 do giảng viên phát ở mốc 2:35; không commit vào repo sinh viên.
+gold/*
+!gold/.gitkeep
+
+# Ảnh đã vẽ box (rất nặng) và file tạm của notebook.
+outputs/vis_*/
+outputs/tmp_*.txt
+
+# Checkpoint YOLO tải về lúc chạy, và file nén.
+*.pt
+*.zip
+
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
