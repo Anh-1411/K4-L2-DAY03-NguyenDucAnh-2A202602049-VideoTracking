@@ -47,21 +47,21 @@ Bổ sung của cá nhân: chỉ gán phương tiện thật đang xuất hiện
 ## 4. Ít nhất ba ca mơ hồ đã gặp thật
 
 ### Ca 1
-- Clip / frame / ID: `clip_01`, khoảng frame 79, ID 5
-- Tình huống: Bản gán có bbox trước khi xe thực sự xuất hiện rõ, do nội suy từ keyframe sau kéo bbox về các frame trước.
-- Quyết định: Xóa phần bbox thừa và bắt đầu track tại frame đầu tiên có thể xác định chắc chắn là xe.
-- Lý do: Nếu bắt đầu quá sớm thì các bbox không có vật thể thật sẽ bị tính là false positive.
+- Clip / frame / ID: `clip_01`, frame 58–78, ID 5
+- Tình huống: Bản gán có bbox trước khi xe thực sự xuất hiện rõ, do nội suy từ keyframe sau kéo bbox về các frame trước. Ở frame 79, bbox đã khớp được xe nhưng còn hơi lệch (IoU khoảng 0.60 so với gold).
+- Quyết định: Xác định cần xóa bbox thừa ở frame 58–78, bắt đầu track tại frame đầu tiên có thể nhận diện chắc chắn là xe và chỉnh lại bbox quanh frame 79.
+- Lý do: Nếu bắt đầu quá sớm thì các bbox không có vật thể thật sẽ bị tính là false positive; bbox lệch ở frame bắt đầu cũng làm giảm chất lượng định vị.
 
 ### Ca 2
 - Clip / frame / ID: `clip_01`, frame 102–104, ID 6
 - Tình huống: Xe thay đổi vị trí nhanh hơn so với đường nội suy nên bbox bị trôi, IoU ở frame 102 chỉ còn khoảng 0.56.
-- Quyết định: Thêm keyframe quanh frame 102–104 và chỉnh bbox ôm sát phần xe nhìn thấy.
+- Quyết định: Xác định cần thêm keyframe quanh frame 102–104 và chỉnh bbox ôm sát phần xe nhìn thấy.
 - Lý do: Giữ keyframe cũ quá thưa làm bbox nằm lệch khỏi xe ở các frame giữa.
 
 ### Ca 3
 - Clip / frame / ID: `clip_01`, frame 169–171, ID 8
 - Tình huống: Xe đã rời khỏi khung nhưng bbox vẫn còn tồn tại thêm vài frame.
-- Quyết định: Kết thúc track đúng frame cuối cùng xe còn nhìn thấy và đặt outside ngay sau đó.
+- Quyết định: Xác định cần kết thúc track đúng frame cuối cùng xe còn nhìn thấy và đặt outside ngay sau đó.
 - Lý do: Bbox tồn tại sau khi xe rời khung sẽ trở thành bbox treo và làm tăng false positive.
 
 ## 5. Sửa gì sau khi chấm với gold và sau khi kiểm chéo

@@ -26,7 +26,7 @@ Ba tình huống khó nhất khi gán clip này, và cách tôi xử lý:
 Ba lượt tua bắt được gì (lượt 1 nhìn ID, lượt 2 frame đầu/cuối, lượt 3 frame giữa):
 
 - Lượt 1: Tôi kiểm tra ID của 8 track, đặc biệt ở các đoạn xe đi gần nhau. Không thấy trường hợp đổi ID giữa chừng trong bản cuối.
-- Lượt 2: Tôi phát hiện một số track bắt đầu quá sớm hoặc kết thúc quá muộn, rõ nhất là ID 5, 6 và 8.
+- Lượt 2: Tôi phát hiện một số track bắt đầu quá sớm hoặc kết thúc quá muộn ở ID 4, 5, 6, 7 và 8; nghiêm trọng nhất là ID 5 và 6.
 - Lượt 3: Tôi thấy bbox bị trôi ở một số frame giữa, nhất là quanh frame 79, 96 và 102–106.
 
 Kiểm chéo với: **không có — tôi làm solo**. Vì vậy không có file nhận xét từ thành viên cùng nhóm.  
@@ -47,8 +47,10 @@ Notebook hiện mới lưu kết quả của một lần chấm nên tôi chưa 
 
 | Loại lỗi | Frame | ID | Cách sửa |
 | --- | --- | --- | --- |
+| Bbox thừa trước/sau khi xe xuất hiện | 51–53 và 149–151 | 4 | Chỉnh lại frame bắt đầu và kết thúc của track |
 | Bbox thừa trước khi xe xuất hiện | 58–78 | 5 | Đặt lại frame bắt đầu và đánh dấu outside trước khi xe thực sự xuất hiện |
 | Bbox thừa trước khi xe xuất hiện | 79–100 | 6 | Cắt phần bbox nội suy bị treo và bắt đầu track đúng frame xe xuất hiện |
+| Bbox thừa trước khi xe xuất hiện | 103–105 | 7 | Đặt lại frame bắt đầu tại lúc xe thực sự xuất hiện |
 | Bbox trôi | 102–104 | 6 | Thêm keyframe quanh đoạn này và chỉnh bbox ôm sát xe |
 | Bbox trôi | 106 | 7 | Thêm keyframe để bbox không bị lệch khi nội suy |
 | Bbox thừa sau khi xe rời khung | 169–171 | 8 | Kết thúc track đúng frame xe rời khỏi khung hình |
