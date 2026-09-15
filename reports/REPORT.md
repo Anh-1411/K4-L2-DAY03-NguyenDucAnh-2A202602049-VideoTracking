@@ -93,11 +93,11 @@ Về quy trình, tôi sẽ gán theo từng track từ đầu đến cuối, sau
 
 ## 7. Tệp đã nộp
 
-- [ ] `annotations/clip_01/gt.txt`
-- [ ] `annotations/clip_02/gt.txt`
-- [ ] `GUIDELINE_MINI.md` đã điền
-- [ ] `outputs/eval_vs_gold.json`
-- [ ] `outputs/model_clip_01.txt`
-- [ ] `outputs/eval_model_vs_gold.json`, `outputs/eval_model_vs_me.json`
+- [X] `annotations/clip_01/gt.txt`
+- [X] `annotations/clip_02/gt.txt`
+- [X] `GUIDELINE_MINI.md` đã điền
+- [X] `outputs/eval_vs_gold.json`
+- [X] `outputs/model_clip_01.txt`
+- [X] `outputs/eval_model_vs_gold.json`, `outputs/eval_model_vs_me.json`
 - [ ] `reports/review_partner.md` — không áp dụng vì làm solo
-- [x] `reports/REPORT.md` (file này)
+- [X] `reports/REPORT.md` (file này)
